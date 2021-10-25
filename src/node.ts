@@ -1,16 +1,9 @@
 import type { ServerResponse } from 'http';
 
-import type { Options } from 'piecemeal';
+import type { Options, Payload } from 'piecemeal';
 import { generate } from 'piecemeal';
 
-import { mapTo } from './shared';
-
-// TODO: Only supports json right now
-const headers = {
-	'content-type': 'application/json; charset=utf-8',
-};
-
-export const stream = <T extends any>(
+export const stream = <T extends Payload<any>>(
 	data: AsyncIterableIterator<T> | IterableIterator<T>,
 	options: Options = {},
 ) => {
@@ -27,16 +20,11 @@ export const stream = <T extends any>(
 		let ended = false;
 		res.once('close', () => (ended = true));
 
-		await generate(
-			mapTo(data, (payload) => ({ payload, headers })),
-			boundary,
-			res.write.bind(res),
-			{
-				get aborted() {
-					return ended;
-				},
+		await generate(data, boundary, res.write.bind(res), {
+			get aborted() {
+				return ended;
 			},
-		);
+		});
 
 		res.end();
 	};

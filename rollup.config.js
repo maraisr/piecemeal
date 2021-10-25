@@ -73,6 +73,8 @@ export default [
 	types("src/index.ts", "types/index.d.ts"),
 	types("src/node.ts", "types/node.d.ts"),
 	types("src/worker.ts", "types/worker.d.ts"),
+	types("src/message.ts", "types/message.d.ts"),
+
 	source("src/index.ts", [
 		output(true, "."),
 		output(false, "."),
@@ -83,5 +85,9 @@ export default [
 	source("src/node.ts", [
 		output(true, "./node"),
 		output(false, "./node"),
+	]),
+	source("src/message.ts", [
+		output(true, "./message"),
+		output(false, "./message"),
 	]),
 ];

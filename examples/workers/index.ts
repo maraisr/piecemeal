@@ -1,4 +1,5 @@
 import * as Piecemeal from 'piecemeal/worker';
+import * as message from 'piecemeal/message';
 import { Context as ModuleContext, Handler, Router } from 'worktop';
 import { reply } from 'worktop/cache';
 import type { KV } from 'worktop/kv';
@@ -16,7 +17,7 @@ async function* get_data(binding: KV.Namespace, prefix: string) {
 	});
 
 	for await (let key of keys) {
-		yield await read(binding, key);
+		yield message.json(await read(binding, key));
 	}
 }
 

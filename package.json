@@ -14,13 +14,17 @@
 	},
 	"sideEffects": false,
 	"exports": {
+		".": {
+			"import": "./piecemeal/index.mjs",
+			"require": "./piecemeal/index.js"
+		},
 		"./node": {
 			"import": "./piecemeal/node/index.mjs",
 			"require": "./piecemeal/node/index.js"
 		},
-		".": {
-			"import": "./piecemeal/index.mjs",
-			"require": "./piecemeal/index.js"
+		"./message": {
+			"import": "./piecemeal/message/index.mjs",
+			"require": "./piecemeal/message/index.js"
 		},
 		"./worker": "./piecemeal/worker/index.mjs",
 		"./package.json": "./package.json"
