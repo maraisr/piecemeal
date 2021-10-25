@@ -1,0 +1,16 @@
+{
+	"extends": "@marais/tsconfig",
+	"compilerOptions": {
+		"rootDir": ".",
+		"baseUrl": ".",
+		"outDir": "dist",
+		"declaration": false,
+		"removeComments": false,
+		"lib": ["DOM", "WebWorker", "ESNext"],
+		"paths": {
+			"piecemeal/*": ["./src/*"]
+		}
+	},
+	"include": ["src/**/*", "examples/**/*"],
+	"exclude": ["node_modules"]
+}

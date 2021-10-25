@@ -1,0 +1,9 @@
+{
+	"name": "piecemeal-example-workers",
+	"private": true,
+	"version": "0.0.1",
+	"dependencies": {
+		"piecemeal": "*",
+		"worktop": "^0.8.0-next.5"
+	}
+}

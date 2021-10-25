@@ -1,0 +1,9 @@
+{
+	"name": "piecemeal-example-polka",
+	"private": true,
+	"version": "0.0.1",
+	"dependencies": {
+		"polka": "^1.0.0-next.22",
+		"piecemeal": "*"
+	}
+}

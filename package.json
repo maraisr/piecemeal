@@ -1,0 +1,45 @@
+{
+	"name": "piecemeal",
+	"version": "0.0.2",
+	"description": "TODO",
+	"keywords": [
+		"TODO"
+	],
+	"repository": "maraisr/piecemeal",
+	"license": "MIT",
+	"author": {
+		"name": "Marais Rossouw",
+		"email": "me@marais.dev",
+		"url": "https://marais.io"
+	},
+	"sideEffects": false,
+	"exports": {
+		"./node": {
+			"import": "./piecemeal/node/index.mjs",
+			"require": "./piecemeal/node/index.js"
+		},
+		"./worker": "./piecemeal/worker/index.mjs",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\""
+	},
+	"devDependencies": {
+		"@marais/tsconfig": "0.0.1",
+		"@types/node": "16.11.4",
+		"prettier": "2.4.1",
+		"tsm": "2.1.2",
+		"typescript": "4.4.4",
+		"worktop": "0.8.0-next.5",
+		"rollup": "2.58.0",
+		"rollup-plugin-dts": "4.0.0"
+	},
+	"peerDependencies": {
+		"worktop": "^0.8.0-next.5"
+	},
+	"peerDependenciesMeta": {
+		"worktop": {
+			"optional": true
+		}
+	}
+}
