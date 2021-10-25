@@ -30,7 +30,7 @@ export const stream = <T extends any>(
 		await generate(
 			mapTo(data, (payload) => ({ payload, headers })),
 			boundary,
-			res.write,
+			res.write.bind(res),
 			{
 				get aborted() {
 					return ended;

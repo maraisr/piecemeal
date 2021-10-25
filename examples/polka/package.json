@@ -2,8 +2,14 @@
 	"name": "piecemeal-example-polka",
 	"private": true,
 	"version": "0.0.1",
+	"scripts": {
+		"start": "tsm index.ts"
+	},
 	"dependencies": {
-		"polka": "^1.0.0-next.22",
-		"piecemeal": "*"
+		"piecemeal": "*",
+		"polka": "^1.0.0-next.22"
+	},
+	"devDependencies": {
+		"tsm": "^2.1.2"
 	}
 }

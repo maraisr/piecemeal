@@ -29,4 +29,13 @@ const handler: Middleware = async (_req, res) => {
 	await stream.pipe(res);
 };
 
-polka().get('/', handler).listen(8080);
+polka({
+	onError(e) {
+		console.error(e);
+	},
+})
+	.get('/', handler)
+	.listen(8080, (e) => {
+		if (e) throw e;
+		console.log('Ready 🕺');
+	});

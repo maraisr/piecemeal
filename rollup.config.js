@@ -74,8 +74,8 @@ export default [
 	types("src/node.ts", "types/node.d.ts"),
 	types("src/worker.ts", "types/worker.d.ts"),
 	source("src/index.ts", [
-		output(true, "./"),
-		output(false, "./"),
+		output(true, "."),
+		output(false, "."),
 	]),
 	source("src/worker.ts", [
 		output(true, "./worker"),

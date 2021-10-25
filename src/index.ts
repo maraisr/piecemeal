@@ -1,6 +1,6 @@
-import type { Abortable, Payload, Headers } from './types';
+import type { Abortable, Headers, Payload } from './types';
 
-export * from './types';
+export type { Payload, Options } from './types';
 
 export const message = (payload: any, headers: Headers) => {
 	const returns = [''];

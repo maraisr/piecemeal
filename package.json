@@ -1,6 +1,6 @@
 {
 	"name": "piecemeal",
-	"version": "0.0.2-next.1",
+	"version": "0.0.2-next.2",
 	"description": "TODO",
 	"keywords": [
 		"TODO"
@@ -18,7 +18,7 @@
 			"import": "./piecemeal/node/index.mjs",
 			"require": "./piecemeal/node/index.js"
 		},
-		"./": {
+		".": {
 			"import": "./piecemeal/index.mjs",
 			"require": "./piecemeal/index.js"
 		},
