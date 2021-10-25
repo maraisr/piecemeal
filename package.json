@@ -1,6 +1,6 @@
 {
 	"name": "piecemeal",
-	"version": "0.0.2",
+	"version": "0.0.2-next.1",
 	"description": "TODO",
 	"keywords": [
 		"TODO"
@@ -18,21 +18,44 @@
 			"import": "./piecemeal/node/index.mjs",
 			"require": "./piecemeal/node/index.js"
 		},
+		"./": {
+			"import": "./piecemeal/index.mjs",
+			"require": "./piecemeal/index.js"
+		},
 		"./worker": "./piecemeal/worker/index.mjs",
 		"./package.json": "./package.json"
 	},
+	"main": "./piecemeal/index.js",
+	"module": "./piecemeal/index.mjs",
+	"types": "index.d.ts",
+	"typesVersions": {
+		">=3.4": {
+			"*": [
+				"types/*"
+			],
+			"index.d.ts": [
+				"types/index.d.ts"
+			]
+		}
+	},
+	"files": [
+		"piecemeal/*",
+		"types/*"
+	],
 	"scripts": {
+		"build": "rollup -c",
 		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\""
 	},
 	"devDependencies": {
 		"@marais/tsconfig": "0.0.1",
+		"@rollup/plugin-node-resolve": "^13.0.6",
 		"@types/node": "16.11.4",
 		"prettier": "2.4.1",
+		"rollup": "2.58.0",
+		"rollup-plugin-dts": "4.0.0",
 		"tsm": "2.1.2",
 		"typescript": "4.4.4",
-		"worktop": "0.8.0-next.5",
-		"rollup": "2.58.0",
-		"rollup-plugin-dts": "4.0.0"
+		"worktop": "0.8.0-next.5"
 	},
 	"peerDependencies": {
 		"worktop": "^0.8.0-next.5"
@@ -41,5 +64,8 @@
 		"worktop": {
 			"optional": true
 		}
+	},
+	"volta": {
+		"node": "16.12.0"
 	}
 }

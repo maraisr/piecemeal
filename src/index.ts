@@ -1,8 +1,6 @@
-type Dict<T> = Record<string, T>;
-type Headers = Dict<string | ReadonlyArray<string>>;
+import type { Abortable, Payload, Headers } from './types';
 
-type Payload<T> = { payload: T; headers: Headers };
-type Abortable = { aborted: boolean };
+export * from './types';
 
 export const message = (payload: any, headers: Headers) => {
 	const returns = [''];

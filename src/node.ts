@@ -1,6 +1,8 @@
 import type { ServerResponse } from 'http';
-import { generate } from '.';
-import type { Options } from './shared';
+
+import type { Options } from 'piecemeal';
+import { generate } from 'piecemeal';
+
 import { mapTo } from './shared';
 
 // TODO: Only supports json right now

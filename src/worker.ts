@@ -1,6 +1,7 @@
+import type { Options } from 'piecemeal';
+import { generate } from 'piecemeal';
 import * as Buffer from 'worktop/buffer';
-import { generate } from '.';
-import type { Options } from './shared';
+
 import { mapTo } from './shared';
 
 // TODO: Only supports json right now
