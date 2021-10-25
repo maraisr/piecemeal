@@ -1,6 +1,8 @@
 import type { Options, Payload } from 'piecemeal';
 import { generate } from 'piecemeal';
-import * as Buffer from 'worktop/buffer';
+
+const Encoder = new TextEncoder();
+const asUTF8 = (input: string) => Encoder.encode(input);
 
 export const stream = <T extends Payload<any>>(
 	data: AsyncIterableIterator<T> | IterableIterator<T>,
@@ -22,7 +24,7 @@ export const stream = <T extends Payload<any>>(
 		const writer = writable.getWriter();
 
 		await generate(data, boundary, (data: string) =>
-			writer.write(Buffer.from(data)),
+			writer.write(asUTF8(data)),
 		);
 
 		return writer.releaseLock();

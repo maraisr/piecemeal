@@ -20,7 +20,7 @@
 
 ## ⚡ Features
 
-- **Lightweight** — _Only includes runtimes for Workers. [See](https://npm.anvaka.com/#/view/2d/piecemeal)_.
+- **Lightweight** — _Does **not** include any dependencies [see](https://npm.anvaka.com/#/view/2d/piecemeal)_.
 
 - **Familiar** — _plugs into any `node:http` or `workers` based environment._
 
