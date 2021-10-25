@@ -28,10 +28,21 @@ export const stream = <T extends any>(
 	const pipe = async () => {
 		const writer = writable.getWriter();
 
+		let ended = false;
+
+		readable.getReader().closed.then(() => {
+			ended = true;
+		});
+
 		await generate(
 			mapTo(data, (payload) => ({ payload, headers })),
 			boundary,
 			(data: string) => writer.write(Buffer.from(data)),
+			{
+				get aborted() {
+					return ended;
+				},
+			},
 		);
 
 		return writer.releaseLock();
