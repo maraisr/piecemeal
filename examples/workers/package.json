@@ -5,5 +5,8 @@
 	"dependencies": {
 		"piecemeal": "*",
 		"worktop": "^0.8.0-next.5"
+	},
+	"devDependencies": {
+		"worktop.build": "^0.0.3"
 	}
 }

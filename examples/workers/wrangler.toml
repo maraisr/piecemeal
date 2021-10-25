@@ -1,0 +1,14 @@
+name = "piecemeal-example"
+type = "javascript"
+
+workers_dev = true
+
+compatibility_date = "2021-10-25"
+
+[build]
+command = "pnpm exec worktop build index.ts"
+
+[build.upload]
+format = "modules"
+dir = "build"
+main = "index.mjs"

@@ -21,21 +21,8 @@ export const stream = <T extends Payload<any>>(
 	const pipe = async () => {
 		const writer = writable.getWriter();
 
-		let ended = false;
-
-		readable.getReader().closed.then(() => {
-			ended = true;
-		});
-
-		await generate(
-			data,
-			boundary,
-			(data: string) => writer.write(Buffer.from(data)),
-			{
-				get aborted() {
-					return ended;
-				},
-			},
+		await generate(data, boundary, (data: string) =>
+			writer.write(Buffer.from(data)),
 		);
 
 		return writer.releaseLock();
