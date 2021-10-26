@@ -2,6 +2,8 @@ import type { Abortable, Headers, Payload } from './types';
 
 export type { Payload, Options } from './types';
 
+const CONTENT_TYPE = /*#__PURE__*/ 'content-type';
+
 export const message = (payload: any, headers: Headers) => {
 	const returns = [''];
 
@@ -12,7 +14,11 @@ export const message = (payload: any, headers: Headers) => {
 	return returns.join('\r\n');
 };
 
-export const generate = async <T extends Payload<any>>(
+/*#__INLINE__*/
+const is_raw = (data: any): data is Payload<any> =>
+	'headers' in data && 'data' in data;
+
+export const generate = async <T extends any>(
 	iterator: AsyncIterableIterator<T> | IterableIterator<T>,
 	boundary: string,
 	write: (chunk: string) => Promise<any> | any,
@@ -20,10 +26,31 @@ export const generate = async <T extends Payload<any>>(
 ) => {
 	await write(`--${boundary}`);
 
-	for await (let part of iterator) {
+	for await (let data of iterator) {
 		if (abort && abort.aborted) break;
 
-		await write(message(part.payload, part.headers) + `--${boundary}`);
+		let payload, headers;
+
+		if (is_raw(data)) {
+			payload = data.data;
+			headers = data.headers;
+		} else {
+			let dtype = typeof data;
+			let ctype;
+
+			if (data === null) payload = '';
+			else if (dtype === 'object') {
+				ctype = 'application/json;charset=utf-8';
+				payload = JSON.stringify(data);
+			} else if (dtype !== 'string') {
+				payload = String(data);
+			}
+
+			ctype = ctype || 'text/plain';
+			headers = { [CONTENT_TYPE]: ctype };
+		}
+
+		await write(message(payload, headers) + `--${boundary}`);
 	}
 
 	write(`--\r\n`);

@@ -1,8 +1,8 @@
 import type { Payload } from 'piecemeal';
 
-export const json = (data: any): Payload<string> => ({
-	payload: JSON.stringify(data),
-	headers: {
-		'content-type': 'application/json;charset=utf-8',
-	},
+import type { Headers } from './types';
+
+export const raw = <T extends any>(data: T, headers?: Headers): Payload<T> => ({
+	data,
+	headers,
 });

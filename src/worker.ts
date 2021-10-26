@@ -1,10 +1,10 @@
-import type { Options, Payload } from 'piecemeal';
+import type { Options } from 'piecemeal';
 import { generate } from 'piecemeal';
 
 const Encoder = new TextEncoder();
 const asUTF8 = (input: string) => Encoder.encode(input);
 
-export const stream = <T extends Payload<any>>(
+export const stream = <T extends any>(
 	data: AsyncIterableIterator<T> | IterableIterator<T>,
 	requestInit: ResponseInit = {},
 	options: Options = {},
