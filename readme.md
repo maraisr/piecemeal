@@ -87,7 +87,7 @@ createServer((req, res) => {
   const data = get_data();
 
   // Creates a streams — and kicks off the iterable.
-  // assumes JSON (can ovveride)
+  // assumes JSON (can override)
   const stream = Piecemeal.stream(data);
 
   // Pipes the stream directly to a ServerResponse
@@ -97,26 +97,31 @@ createServer((req, res) => {
 
 ## 🔎 API
 
-#### Module: [`piecemeal`](./src/index.ts)
-
-TODO
-
-#### Module: [`piecemeal/message`](./src/message.ts)
-
-TODO
-
 #### Module: [`piecemeal/worker`](./src/worker.ts)
 
-TODO
+The main module used by [Cloudflare Workers](https://workers.cloudflare.com/) — or any
+[Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+
+> Example over at [/examples/workers](/examples/workers)
 
 #### Module: [`piecemeal/node`](./src/node.ts)
 
-TODO
+The main module used for a `node` runtime and plugs directly into `node:http` modules.
+
+> Example over at [/examples/polka](/examples/polka)
+
+#### Module: [`piecemeal/message`](./src/message.ts)
+
+A module used to construct messages. Messages are the partial _bits-of-data_ flushed in increments.
+
+#### Module: [`piecemeal`](./src/index.ts)
+
+A main module one can use to build out custom runtimes — exposes all the building blocks to `generate` a stream
+supplying the Iterable and a write method.
 
 ## 🙊 Caveats
 
-- Workers doesn't abort iterable if connection is dropped. 😔
-- More..?? TODO
+- Workers doesn't abort any iterables if connection is dropped. 😔
 
 ## Related
 
