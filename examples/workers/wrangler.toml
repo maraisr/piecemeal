@@ -3,6 +3,8 @@ type = "javascript"
 
 workers_dev = true
 
+account_id = "85a31fecb794eb22c6b5cd6f2ee073b8"
+
 compatibility_date = "2021-10-25"
 
 [build]
