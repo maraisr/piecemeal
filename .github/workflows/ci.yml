@@ -34,7 +34,6 @@ jobs:
         run: pnpm run build
 
       - name: Test
-        if: 'false'
         run: pnpm test
 
       - name: Check Types

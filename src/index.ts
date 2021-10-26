@@ -29,26 +29,24 @@ export const generate = async <T extends any>(
 	for await (let data of iterator) {
 		if (abort && abort.aborted) break;
 
-		let payload, headers;
+		let payload: any = data,
+			headers;
+		let dtype = typeof data;
 
-		if (is_raw(data)) {
-			payload = data.data;
-			headers = data.headers;
-		} else {
-			let dtype = typeof data;
-			let ctype;
-
-			if (data === null) payload = '';
-			else if (dtype === 'object') {
-				ctype = 'application/json;charset=utf-8';
+		if (data === null) payload = '';
+		else if (dtype === 'object') {
+			if (is_raw(data)) {
+				headers = data.headers;
+				payload = data.data;
+			} else {
+				headers = { [CONTENT_TYPE]: 'application/json;charset=utf-8' };
 				payload = JSON.stringify(data);
-			} else if (dtype !== 'string') {
-				payload = String(data);
 			}
-
-			ctype = ctype || 'text/plain';
-			headers = { [CONTENT_TYPE]: ctype };
+		} else if (dtype !== 'string') {
+			payload = String(data);
 		}
+
+		headers = headers || { [CONTENT_TYPE]: 'text/plain' };
 
 		await write(message(payload, headers) + `--${boundary}`);
 	}

@@ -16,7 +16,7 @@ export const stream = <T extends any>(
 	requestInit.headers = {
 		...requestInit.headers,
 		connection: 'keep-alive',
-		'content-type': `multipart/mixed; boundary="${boundary}"`,
+		'content-type': `multipart/mixed;boundary="${boundary}"`,
 		'transfer-encoding': 'chunked',
 	};
 

@@ -11,10 +11,7 @@ export const stream = <T extends any>(
 
 	const pipe = async (res: ServerResponse) => {
 		res.setHeader('connection', 'keep-alive');
-		res.setHeader(
-			'content-type',
-			`multipart/mixed; boundary="${boundary}"`,
-		);
+		res.setHeader('content-type', `multipart/mixed;boundary="${boundary}"`);
 		res.setHeader('transfer-encoding', 'chunked');
 
 		let ended = false;
