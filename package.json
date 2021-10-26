@@ -1,9 +1,16 @@
 {
 	"name": "piecemeal",
-	"version": "0.0.2-next.2",
-	"description": "TODO",
+	"version": "0.0.2",
+	"description": "Effortless incrementally deliver your data",
 	"keywords": [
-		"TODO"
+		"serviceworker",
+		"incremental",
+		"cloudflare",
+		"framework",
+		"multipart",
+		"delivery",
+		"workers",
+		"worker"
 	],
 	"repository": "maraisr/piecemeal",
 	"license": "MIT",
