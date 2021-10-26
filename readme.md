@@ -1,21 +1,21 @@
 <div align="center">
-	<h1><img src="./shots/logo.png" alt="piecemeal"/></h1>
-	<p align="center"><code>npm add piecemeal</code> makes incremental delivery possible</p>
+	<h1><img src="./shots/logo.svg" alt="piecemeal"/></h1>
+	<p><code>npm add piecemeal</code> makes incremental delivery possible</p>
 	<hr />
-	<span>
+	<div>
 		<a href="https://github.com/maraisr/piecemeal/actions/workflows/ci.yml">
 			<img src="https://github.com/maraisr/piecemeal/actions/workflows/ci.yml/badge.svg"/>
 		</a>
 		<a href="https://npm-stat.com/charts.html?package=piecemeal">
-			<img src="https://badgen.net/npm/dm/piecemeal" alt="downloads"/>
+			<img src="https://badgen.net/npm/dm/piecemeal?labelColor=black&color=black" alt="downloads"/>
 		</a>
 		<a href="https://packagephobia.com/result?p=piecemeal">
-			<img src="https://badgen.net/packagephobia/install/piecemeal" alt="size"/>
+			<img src="https://badgen.net/packagephobia/install/piecemeal?labelColor=black&color=black" alt="size"/>
 		</a>
 		<a href="https://bundlephobia.com/result?p=piecemeal">
-			<img src="https://badgen.net/bundlephobia/minzip/piecemeal" alt="size"/>
+			<img src="https://badgen.net/bundlephobia/minzip/piecemeal?labelColor=black&color=black" alt="size"/>
 		</a>
-	</span>
+	</div>
 </div>
 
 ## ⚡ Features
