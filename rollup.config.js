@@ -13,7 +13,7 @@ import pkg from "./package.json";
 const output = (isESM, key) => {
 	return {
 		format: isESM ? "esm" : "cjs",
-		file: pkg.exports[key][isESM ? "import" : "require"] ?? pkg.exports[key],
+		file: pkg.exports[key][isESM ? "import" : "require"] || pkg.exports[key],
 		preferConst: true,
 		esModule: false,
 		freeze: false,
@@ -27,14 +27,13 @@ const output = (isESM, key) => {
 const source = (input, output) => ({
 	input,
 	output,
-	context: "./src",
 	external: [
-		/worktop\/?.*/,
-		/piecemeal\/?.*/
+		"piecemeal",
 	],
 	plugins: [
 		nodeResolve({
 			extensions: [".ts", ".d.ts"],
+			preferBuiltins: true
 		}),
 		{
 			name: "typescript",
@@ -59,6 +58,9 @@ const source = (input, output) => ({
  */
 const types = (input, file) => ({
 	input,
+	external: [
+		"piecemeal",
+	],
 	output: {
 		file,
 		format: "esm",

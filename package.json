@@ -55,14 +55,15 @@
 	],
 	"scripts": {
 		"build": "rollup -c",
-		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\""
+		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\"",
+		"typecheck": "tsc --noEmit  --skipLibCheck"
 	},
 	"devDependencies": {
 		"@marais/tsconfig": "0.0.1",
 		"@rollup/plugin-node-resolve": "^13.0.6",
-		"@types/node": "16.11.4",
+		"@types/node": "16.11.6",
 		"prettier": "2.4.1",
-		"rollup": "2.58.0",
+		"rollup": "2.58.3",
 		"rollup-plugin-dts": "4.0.0",
 		"typescript": "4.4.4"
 	},
