@@ -6,15 +6,15 @@ const asUTF8 = (input: string) => Encoder.encode(input);
 
 export const stream = <T extends any>(
 	data: AsyncIterableIterator<T> | IterableIterator<T>,
-	requestInit: ResponseInit = {},
+	responseInit: ResponseInit = {},
 	options: Options = {},
 ) => {
 	const { readable, writable } = new TransformStream();
 
 	const boundary = options.boundary || '-';
 
-	requestInit.headers = {
-		...requestInit.headers,
+	responseInit.headers = {
+		...(responseInit?.headers || {}),
 		connection: 'keep-alive',
 		'content-type': `multipart/mixed;boundary="${boundary}"`,
 		'transfer-encoding': 'chunked',
@@ -31,7 +31,7 @@ export const stream = <T extends any>(
 	};
 
 	return {
-		response: new Response(readable, requestInit),
+		response: new Response(readable, responseInit),
 		pipe,
 	};
 };
