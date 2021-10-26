@@ -1,4 +1,3 @@
-import * as message from 'piecemeal/message';
 import * as Piecemeal from 'piecemeal/node';
 import type { Middleware } from 'polka';
 import polka from 'polka';
@@ -20,7 +19,7 @@ async function* get_data() {
 	const keys = await db.fetchAllKeys();
 
 	for await (let key of keys) {
-		yield message.json(await db.read(key));
+		yield await db.read(key);
 	}
 }
 
@@ -36,7 +35,4 @@ polka({
 	},
 })
 	.get('/', handler)
-	.listen(8080, (e) => {
-		if (e) throw e;
-		console.log('Ready 🕺');
-	});
+	.listen(8080);

@@ -1,4 +1,3 @@
-import * as message from 'piecemeal/message';
 import * as Piecemeal from 'piecemeal/worker';
 import { Context as ModuleContext, Handler, Router } from 'worktop';
 import { reply } from 'worktop/cache';
@@ -11,31 +10,25 @@ interface Context extends ModuleContext {
 	};
 }
 
-async function* get_data_kv(binding: KV.Namespace, prefix: string) {
+async function* get_data(binding: KV.Namespace, prefix: string) {
 	const keys = await paginate(binding, {
 		prefix,
 	});
 
 	for await (let key of keys) {
-		yield message.json(await read(binding, key));
-	}
-}
-
-async function* get_data_static() {
-	for (let letter = 65; letter <= 90; letter++) {
-		// Artificial pause
-		await new Promise((resolve) => setTimeout(resolve, 150));
-
-		yield message.json({ letter: String.fromCharCode(letter) });
+		yield await read(binding, key);
 	}
 }
 
 const handler: Handler<Context> = async (_request, context) => {
-	const { pipe, response } = Piecemeal.stream(get_data_static(), {
-		headers: {
-			'cache-control': 'public,max-age=50',
+	const { pipe, response } = Piecemeal.stream(
+		get_data(context.bindings.DATA, 'something'),
+		{
+			headers: {
+				'cache-control': 'public,max-age=50',
+			},
 		},
-	});
+	);
 
 	context.waitUntil(pipe());
 

@@ -9,11 +9,11 @@
 		<a href="https://npm-stat.com/charts.html?package=piecemeal">
 			<img src="https://badgen.net/npm/dm/piecemeal" alt="downloads"/>
 		</a>
-		<a href="https://packagephobia.com/result?p=piecemeal@next">
-			<img src="https://badgen.net/packagephobia/install/piecemeal@next" alt="size"/>
+		<a href="https://packagephobia.com/result?p=piecemeal">
+			<img src="https://badgen.net/packagephobia/install/piecemeal" alt="size"/>
 		</a>
-		<a href="https://bundlephobia.com/result?p=piecemeal@next">
-			<img src="https://badgen.net/bundlephobia/minzip/piecemeal@next" alt="size"/>
+		<a href="https://bundlephobia.com/result?p=piecemeal">
+			<img src="https://badgen.net/bundlephobia/minzip/piecemeal" alt="size"/>
 		</a>
 	</span>
 </div>
