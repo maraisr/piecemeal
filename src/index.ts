@@ -51,5 +51,5 @@ export const generate = async <T extends any>(
 		await write(message(payload, headers) + `--${boundary}`);
 	}
 
-	write(`--\r\n`);
+	await write(`--\r\n`);
 };
