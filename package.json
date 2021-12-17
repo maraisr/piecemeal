@@ -1,6 +1,6 @@
 {
 	"name": "piecemeal",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Effortless incrementally deliver your data",
 	"keywords": [
 		"serviceworker",
