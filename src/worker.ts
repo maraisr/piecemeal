@@ -27,7 +27,7 @@ export const stream = <T extends any>(
 			writer.write(asUTF8(data)),
 		);
 
-		return writer.releaseLock();
+		return writer.close();
 	};
 
 	return {
