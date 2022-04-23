@@ -13,6 +13,7 @@ export function stream<T extends any>(
 		res.setHeader('connection', 'keep-alive');
 		res.setHeader('content-type', `multipart/mixed;boundary="${boundary}"`);
 		res.setHeader('transfer-encoding', 'chunked');
+		res.flushHeaders();
 
 		let ended = false;
 		res.once('close', () => (ended = true));
