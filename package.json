@@ -26,49 +26,39 @@
 			"require": "./piecemeal/index.js"
 		},
 		"./node": {
-			"import": "./piecemeal/node/index.mjs",
-			"require": "./piecemeal/node/index.js"
+			"import": "./node/index.mjs",
+			"require": "./node/index.js"
 		},
+		"./worker": "./worker/index.mjs",
 		"./message": {
-			"import": "./piecemeal/message/index.mjs",
-			"require": "./piecemeal/message/index.js"
+			"import": "./message/index.mjs",
+			"require": "./message/index.js"
 		},
-		"./worker": "./piecemeal/worker/index.mjs",
 		"./package.json": "./package.json"
 	},
-	"main": "./piecemeal/index.js",
-	"module": "./piecemeal/index.mjs",
-	"types": "index.d.ts",
-	"typesVersions": {
-		">=3.4": {
-			"*": [
-				"types/*"
-			],
-			"index.d.ts": [
-				"types/index.d.ts"
-			]
-		}
-	},
+	"main": "./index.js",
+	"module": "./index.mjs",
+	"types": "./index.d.ts",
 	"files": [
-		"piecemeal/*",
-		"types/*"
+		"piecemeal",
+		"node",
+		"worker",
+		"message"
 	],
 	"scripts": {
-		"build": "rollup -c",
+		"build": "bundt --minify",
 		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\"",
 		"test": "uvu test \".spec.ts$\" -r tsm",
 		"typecheck": "tsc --noEmit  --skipLibCheck"
 	},
 	"devDependencies": {
-		"@marais/tsconfig": "0.0.1",
-		"@rollup/plugin-node-resolve": "13.1.1",
-		"@types/node": "17.0.0",
-		"prettier": "2.5.1",
-		"rollup": "2.61.1",
-		"rollup-plugin-dts": "4.0.1",
+		"@marais/tsconfig": "0.0.2",
+		"@types/node": "17.0.25",
+		"bundt": "2.0.0-next.2",
+		"prettier": "2.6.2",
 		"tsm": "2.2.1",
-		"typescript": "4.5.4",
-		"uvu": "0.5.2"
+		"typescript": "4.6.3",
+		"uvu": "0.5.3"
 	},
 	"volta": {
 		"node": "16.12.0"

@@ -1,10 +1,8 @@
-import type { Abortable, Headers, Payload } from './types';
+import type { Abortable, Headers, Payload } from 'piecemeal';
 
-export type { Payload, Options } from './types';
+const CONTENT_TYPE = 'content-type';
 
-const CONTENT_TYPE = /*#__PURE__*/ 'content-type';
-
-export const message = (payload: any, headers: Headers) => {
+function message(payload: any, headers: Headers) {
 	const returns = [''];
 
 	for (let key in headers) returns.push(`${key}: ${headers[key]}`);
@@ -12,18 +10,19 @@ export const message = (payload: any, headers: Headers) => {
 	returns.push('', String(payload), '');
 
 	return returns.join('\r\n');
-};
+}
 
 /*#__INLINE__*/
-const is_raw = (data: any): data is Payload<any> =>
-	'headers' in data && 'data' in data;
+function is_raw(data: any): data is Payload<any> {
+	return 'headers' in data && 'data' in data;
+}
 
-export const generate = async <T extends any>(
+export async function generate<T extends any>(
 	iterator: AsyncIterableIterator<T> | IterableIterator<T>,
 	boundary: string,
 	write: (chunk: string) => Promise<any> | any,
 	abort?: Abortable,
-) => {
+) {
 	await write(`--${boundary}`);
 
 	for await (let data of iterator) {
@@ -52,4 +51,4 @@ export const generate = async <T extends any>(
 	}
 
 	await write(`--\r\n`);
-};
+}

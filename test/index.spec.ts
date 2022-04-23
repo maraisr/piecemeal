@@ -4,7 +4,6 @@ import * as piecemeal from '../src';
 
 test('exports', () => {
 	assert.type(piecemeal, 'object');
-	assert.type(piecemeal.message, 'function');
 	assert.type(piecemeal.generate, 'function');
 });
 
