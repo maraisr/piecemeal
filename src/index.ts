@@ -1,7 +1,5 @@
 import type { Abortable, Headers, Payload } from 'piecemeal';
 
-const CONTENT_TYPE = 'content-type';
-
 /*#__INLINE__*/
 function message(payload: any, headers: Headers) {
 	const returns = [''];
@@ -39,14 +37,14 @@ export async function generate<T extends any>(
 				headers = data.headers;
 				payload = data.data;
 			} else {
-				headers = { [CONTENT_TYPE]: 'application/json;charset=utf-8' };
+				headers = { 'content-type': 'application/json;charset=utf-8' };
 				payload = JSON.stringify(data);
 			}
 		} else if (dtype !== 'string') {
 			payload = String(data);
 		}
 
-		headers = headers || { [CONTENT_TYPE]: 'text/plain' };
+		headers = headers || { 'content-type': 'text/plain' };
 
 		await write(message(payload, headers) + `--${boundary}`);
 	}

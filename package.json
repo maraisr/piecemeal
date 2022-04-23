@@ -29,7 +29,9 @@
 			"import": "./node/index.mjs",
 			"require": "./node/index.js"
 		},
-		"./worker": "./worker/index.mjs",
+		"./worker": {
+			"import": "./worker/index.mjs"
+		},
 		"./message": {
 			"import": "./message/index.mjs",
 			"require": "./message/index.js"
