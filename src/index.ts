@@ -2,6 +2,7 @@ import type { Abortable, Headers, Payload } from 'piecemeal';
 
 const CONTENT_TYPE = 'content-type';
 
+/*#__INLINE__*/
 function message(payload: any, headers: Headers) {
 	const returns = [''];
 

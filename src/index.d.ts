@@ -13,7 +13,62 @@ export type Options = {
 };
 
 /**
- * TODO
+ * Passing the iterable, a boundary and a write method — this function allows
+ * you to build out custom runtimes. Each `write` call is expect to flush
+ * something to a transport.
+ *
+ * Note! You are expected to send the correct headers.
+ *
+ * ```plain
+ * connection: keep-alive
+ * content-type: multipart/mixed;boundary="<boundary>"
+ * transfer-encoding: chunked
+ * ```
+ *
+ * @example
+ *
+ * ```ts
+ * const data = iterable();
+ * const boundary = '-';
+ *
+ * res.setHeaders({
+ *   connection: 'keep-alive',
+ *   'content-type': `multipart/mixed;boundary="${boundary}"`,
+ *   'transfer-encoding': 'chunked',
+ * });
+ *
+ * generate(
+ *   data,
+ *   boundary,
+ *   chunk => res.write(chunk)
+ * );
+ *
+ * res.end();
+ * ```
+ *
+ * ---
+ *
+ * There is also a 4th argument that can abort the looping, and _loosly_
+ * implements the {@link AbortController} api. But only the `aborted: boolean`
+ * property is required.
+ *
+ * @example
+ *
+ * ```ts
+ * const abortSignal = new AbortController();
+ *
+ * generate(
+ *    data,
+ *    boundary,
+ *    writer,
+ *    abortSignal.signal
+ * );
+ *
+ * // client canceled?
+ * abortSignal.abort();
+ *
+ * // generate will now cease.
+ * ```
  */
 export async function generate<T extends any>(
 	iterator: AsyncIterableIterator<T> | IterableIterator<T>,
