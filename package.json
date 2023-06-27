@@ -14,11 +14,7 @@
 	],
 	"repository": "maraisr/piecemeal",
 	"license": "MIT",
-	"author": {
-		"name": "Marais Rossouw",
-		"email": "me@marais.dev",
-		"url": "https://marais.io"
-	},
+	"author": "Marais Rossow <me@marais.dev> (https://marais.io)",
 	"sideEffects": false,
 	"exports": {
 		".": {
@@ -63,6 +59,6 @@
 		"uvu": "0.5.4"
 	},
 	"volta": {
-		"node": "18.0.0"
+		"node": "18.16.1"
 	}
 }
