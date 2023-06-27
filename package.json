@@ -51,7 +51,7 @@
 		"build": "bundt --minify",
 		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\"",
 		"test": "uvu src \".test.ts$\" -r tsm",
-		"typecheck": "tsc --noEmit  --skipLibCheck"
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@marais/tsconfig": "0.0.4",
