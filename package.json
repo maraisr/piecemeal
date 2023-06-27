@@ -50,7 +50,7 @@
 	"scripts": {
 		"build": "bundt --minify",
 		"format": "prettier  --write --list-different \"{*,src/*,examples/**/*,.github/**/*,test/*}.+(ts|json|yml|md)\"",
-		"test": "uvu test \".spec.ts$\" -r tsm",
+		"test": "uvu src \".test.ts$\" -r tsm",
 		"typecheck": "tsc --noEmit  --skipLibCheck"
 	},
 	"devDependencies": {
