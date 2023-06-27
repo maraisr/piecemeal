@@ -1,7 +1,7 @@
 {
 	"name": "piecemeal-example-polka",
-	"private": true,
 	"version": "0.0.1",
+	"private": true,
 	"scripts": {
 		"start": "tsm index.ts"
 	},
