@@ -1,16 +1,12 @@
 {
 	"extends": "@marais/tsconfig",
 	"compilerOptions": {
-		"noEmit": true,
-		"declaration": false,
-		"removeComments": false,
-		"lib": ["esnext", "dom.iterable", "webworker"],
 		"baseUrl": ".",
 		"paths": {
-			"piecemeal": ["./src/index.d.ts"],
-			"piecemeal/*": ["./src/*.d.ts"]
+			"piecemeal": ["src/index.d.ts"],
+			"piecemeal/*": ["src/*.d.ts"]
 		}
 	},
-	"include": ["src"],
+	"include": ["src", "test"],
 	"exclude": ["node_modules"]
 }
