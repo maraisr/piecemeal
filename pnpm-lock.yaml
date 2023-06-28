@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@marais/prettier':
+    specifier: 0.0.4
+    version: 0.0.4
   '@marais/tsconfig':
     specifier: 0.0.4
     version: 0.0.4
@@ -95,6 +98,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
+  /@marais/prettier@0.0.4:
+    resolution: {integrity: sha512-fcJgHALkAkmOyMEioqMaikXlUQLy9jj+SZjlI2AD9V0vEO1EjR3ZI5vz3y6A0Bz/PgskbyM9+F/A44850UWrhQ==}
     dev: true
 
   /@marais/tsconfig@0.0.4:

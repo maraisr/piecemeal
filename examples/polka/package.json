@@ -1,15 +1,15 @@
 {
-	"name": "piecemeal-example-polka",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "tsm index.ts"
-	},
-	"dependencies": {
-		"piecemeal": "*",
-		"polka": "^1.0.0-next.22"
-	},
-	"devDependencies": {
-		"tsm": "^2.1.2"
-	}
+  "name": "piecemeal-example-polka",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "tsm index.ts"
+  },
+  "dependencies": {
+    "piecemeal": "*",
+    "polka": "^1.0.0-next.22"
+  },
+  "devDependencies": {
+    "tsm": "^2.1.2"
+  }
 }

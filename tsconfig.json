@@ -1,12 +1,12 @@
 {
-	"extends": "@marais/tsconfig",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"piecemeal": ["src/index.d.ts"],
-			"piecemeal/*": ["src/*.d.ts"]
-		}
-	},
-	"include": ["src", "test"],
-	"exclude": ["node_modules"]
+  "extends": "@marais/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "piecemeal": ["src/index.d.ts"],
+      "piecemeal/*": ["src/*.d.ts"]
+    }
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules"]
 }
