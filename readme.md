@@ -6,6 +6,9 @@
 		<a href="https://github.com/maraisr/piecemeal/actions/workflows/ci.yml">
 			<img src="https://github.com/maraisr/piecemeal/actions/workflows/ci.yml/badge.svg"/>
 		</a>
+		<a href="https://licenses.dev/npm/piecemeal">
+		  <img src="https://licenses.dev/b/npm/piecemeal?style=dark" alt="licenses" />
+		</a>
 		<a href="https://npm-stat.com/charts.html?package=piecemeal">
 			<img src="https://badgen.net/npm/dm/piecemeal?labelColor=black&color=black" alt="downloads"/>
 		</a>
